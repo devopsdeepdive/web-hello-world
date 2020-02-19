@@ -16,11 +16,4 @@ repositories {
   mavenCentral()
 }
 
-task storeWar(type: War) {
-  manifest {
-    attributes firstKey: 'firstValue', secondKey: 'secondValue'
-  }
-  archiveName = 'web-hello-world.war'
-  destinationDir = file("wars")
-  from sourceSets.main.output
-}
+
