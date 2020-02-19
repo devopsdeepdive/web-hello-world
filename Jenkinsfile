@@ -1,26 +1,27 @@
 pipeline {
-   agent any
+   //agent any
+   agent { label 'master' }
 
    stages {
-	
-	  stage('clone repo) {
+
+    stage('clone repo') {
          steps {
             git(
-				url: 'https://github.com/kumaraswamym/web-hello-world',
-				branch: "master"
-    )
+                url: 'https://github.com/kumaraswamym/web-hello-world',
+                branch: "master"
+				)
          }
       }
-      stage('clean test') {
+    stage('clean test') {
          steps {
             sh 'chmod +x ./gradlew'
-			sh './gradlew clean test'
+            sh './gradlew clean test'
          }
       }
-	  stage('archive') {
+	stage('archive') {
          steps {
-            sh './gradlew package'
+            sh './gradlew war'
          }
-      }
+    }
    }
 }
