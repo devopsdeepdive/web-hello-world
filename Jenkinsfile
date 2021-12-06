@@ -1,4 +1,4 @@
-#this is sample jenkinsfile
+#this is sample jenkinsfile-sample
 pipeline {
    //agent any
    agent { label 'master' }
